@@ -1,0 +1,14 @@
+            {% extends 'template.html' %}
+            {% block content %}
+
+            <h2>{{ article.Title }}</h2>
+            <p class="lead">
+                     <a href=""><span class="glyphicon glyphicon-star "></span> {{ article.target}}</a>
+                </p>
+                <p><span class="glyphicon glyphicon-time"></span>{{ article.recordTime }}</p>
+                <hr>
+                <p >
+               {{ article.articleDetial |safe}}
+                </p>
+            {% endblock %}
+

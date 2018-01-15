@@ -1,0 +1,55 @@
+            {% extends 'template.html' %}
+
+            {% block content %}
+                <h1 class="page-header">Learn as  a Beginner <small>whenever</small>
+                </h1>
+
+                <!-- First Blog Post -->
+                {% for article in articleList %}
+
+                <!-- Second Blog Post -->
+                <h3>
+                    <a href="articleDetial/{{ article.id }}" >{{ article.Title }}</a>
+                </h3>
+                <p class="lead">
+                     <p >{{ article.target }}</p><p><span class="glyphicon glyphicon-time"></span>{{ article.recordTime }}</p>
+                </p>
+
+                <!--
+                <hr>
+                <img class="img-responsive" src="{{ article.showPicture.url }}" alt="">
+                -->
+                <hr>
+                <p>{{ article.articleDes }}</p>
+               <!-- <button class="btn btn-primary"  type="submit">文章详情 <span class="glyphicon glyphicon-chevron-right"></span></button>-->
+
+                <hr>
+                {% endfor %}
+
+                <!-- Third Blog Post -->
+               {% endblock %}
+                <!-- Pager -->
+                {% block jqry %}
+                    <script type="text/javascript">
+                    $('.articleDetial').click(function () {
+
+
+                        var titlename = $(this).html();
+
+                        $.post("articleDetial",{title:titlename});
+
+
+
+                    })
+                    </script>
+                {% endblock %}
+<!--
+                <ul class="pager">
+                    <li class="previous">
+                        <a href="#">&larr; 前一页</a>
+                    </li>
+                    <li class="next">
+                        <a href="#">后一页 &rarr;</a>
+                    </li>
+                </ul>
+-->
